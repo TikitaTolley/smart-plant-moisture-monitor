@@ -1,71 +1,109 @@
-# Smart Plant Hydration Monitor
+# Smart Plant Moisture Monitor
 
-> A 3D printed plant stake with an RGB LED. Glows green when the soil is healthy, red when it's dry.
+> A 3D-printed plant stake with an RGB status lamp. It glows green when the soil is moist, orange in the middle, and red when the plant needs water.
 
 [![YouTube](https://img.shields.io/badge/YouTube-FF0000?style=flat&logo=youtube&logoColor=white)][yt]
 [![TikTok](https://img.shields.io/badge/TikTok-000000?style=flat&logo=tiktok&logoColor=white)][tt]
 [![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=flat&logo=instagram&logoColor=white)][ig]
 [![Wokwi](https://img.shields.io/badge/Wokwi-simulate-2A2A2A?style=flat)][wokwi]
 
+![Printed lamp shade and base](media/lamp-print.jpg)
+
 ## What it does
 
-A soil moisture probe on a stake you push into the pot. An RGB LED sits at the top and shows hydration at a glance: green for happy, red for water me.
+A capacitive sensor reads the soil moisture levels. The ESP32 converts that reading into a simple status colour:
 
-First hardware project.
-
-## Simulated
-
-| Sim | Link | Notes |
+| Sensor reading | Status | LED |
 | --- | --- | --- |
-| Wokwi | [Open][wokwi] | |
+| > 3000 | Dry | Red |
+| 2001 - 3000 | Getting dry | Orange |
+| ≤ 2000 | Moist | Green |
+
+## Simulated circuit
+
+| Simulator | Link | Notes |
+| --- | --- | --- |
+| Wokwi | [Open the simulation][wokwi] | ESP32, moisture input, and RGB output logic |
 
 ## Bill of materials
 
 | Qty | Component | Part | Unit cost | Notes |
 | --- | --- | --- | --- | --- |
-| 1 | Microcontroller | ESP32 | from kit | 3.3 V logic |
-| 1 | Soil moisture sensor | Capacitive v1.2 | £0.48 | 3.3 to 5.5 V in, 0 to 3.0 V out, PH2.0-3P, 98 × 23 mm |
-| 1 | RGB LED | 5050, IP30 | from kit | Run at 3.3 V, not 5 V |
-| 3 | Resistor | 220 Ω | from kit | |
-| 1 | Prototyping board | Perma-Proto half-size | £2.63 | |
-| 1 | Header pins | | £0.11 | |
-| 1 | USB cable | Micro USB | from kit | |
-| 1 | Mains USB plug | | owned | |
-| 1 | Enclosure | 3D printed stake | filament | See Enclosure below |
-| 1 | Plant | Peace lily | £5 to £8 | |
+| 1 | Starter kit | ESP32 Basic Starter Kit | £12.89 bundle | Shared purchase; included parts below are not charged again |
+| 1 | Microcontroller | ESP32 development board | Included in kit | 3.3 V logic |
+| 1 | Breadboard | 830 tie-points | Included in kit | Used for the prototype |
+| 1 | USB cable | Micro USB | Included in kit | |
+| 1 | RGB LED | 5 mm, common cathode | Included in kit | One of two supplied in the kit |
+| 3 | Resistor | 220 Ω from assorted pack | Included in kit | Three of 30 supplied in the kit |
+| As needed | Jumper wires | Dupont F-M and M-M | Included in kit | Used on the breadboard prototype |
+| 1 | Soil moisture sensor | Capacitive v1.2 | £0.48 | 3.3 to 5.5 V input, 0 to 3.0 V output, PH2.0-3P, 98 x 23 mm |
+| 38.02 g | Printed parts | PLA Basic | £1.33 | 26.16 g colourful white + 11.86 g white, at £3.50 per 100 g |
+| 1 | Mains USB plug | 5 V USB | Owned | |
+| 1 | Plant | Peace lily | £4.99 | |
 
-**Total: ~£3.20** plus the plant and filament.
+Project-specific materials: £6.80
+Total including the full starter kit: £19.69.
 
 ## Wiring
 
-Everything runs off the ESP32's 3.3 V rail. The sensor and the LED share VCC and GND.
-
-| Component | Pin | MCU connection | Notes |
+| Component | Pin | ESP32 connection | Notes |
 | --- | --- | --- | --- |
-| Soil moisture sensor | VCC | 3V3 | |
-| | GND | GND | |
-| | AOUT | ADC1 pin, TBD | Not ADC2: those stop working once Wi-Fi is active |
-| RGB LED | VCC | 3V3 | Shared with the sensor |
-| | GND | GND | Shared with the sensor |
-| | DIN | TBD | |
+| Soil moisture sensor | VCC | 3V3 | Shared 3.3 V rail |
+| Soil moisture sensor | GND | GND | Common ground |
+| Soil moisture sensor | AOUT | GPIO 34 | ADC1 pin; avoid ADC2 when Wi-Fi is active |
+| RGB LED | Common cathode | GND | |
+| RGB LED | Red anode | GPIO 25 through 220 Ω | PWM |
+| RGB LED | Green anode | GPIO 26 through 220 Ω | PWM |
+| RGB LED | Blue anode | GPIO 27 through 220 Ω | PWM |
 
-Check sensor's timer chip before powering it: a TLC555 with a 662K regulator is happy at 3.3 V, a bare NE555 with no regulator needs 5 V.
+## Firmware
 
-## Enclosure
+The Arduino sketch is [`main/main.ino`](main/main.ino). It uses the ESP32 Arduino core and no additional libraries.
 
-The sensor case is a print of [danielkrah's Capacitive Soil Moisture Sensor v1.2 Case][printables-vendor]. The four parts I print are in `print/stl/`. 
+1. Open `main/main.ino` in Arduino IDE.
+2. Select the matching ESP32 board and port.
+3. Upload the sketch.
+4. Open Serial Monitor at 115200 baud.
+5. Record readings in dry and watered soil, then adjust the two thresholds in `loop()`.
+
+## Printed sensor case
+
+The sensor case is based on [danielkrah's Capacitive Soil Moisture Sensor v1.2 Case][printables-vendor]. The four parts used here are in `print/stl/`:
 
 | File | Part |
 | --- | --- |
-| `v4-outer-box.stl` | The sleeve |
-| `v4-upper-case.stl` | Green half |
-| `v4-bottom-case.stl` | Green half |
-| `v4-sensor-dummy.stl` | Fit test, so you can check clearances without the real sensor |
+| `v4-outer-box.stl` | Protective sleeve |
+| `v4-upper-case.stl` | Upper case half |
+| `v4-bottom-case.stl` | Lower case half |
+| `v4-sensor-dummy.stl` | Fit-test sensor dummy |
 
-His TPU lids and the v5 outer box with mounting holes aren't here. Grab those from [the original][printables-vendor] if you want them.
+The TPU lids and v5 outer box with mounting holes remain available from the original model.
 
-- Sliced in Bambu Studio for a Bambu P1S
-- Filament: PLA
+![Printed sensor case](media/sensor-case.webp)
+
+## RGB lamp head
+
+The custom shade softens the LED and the base routes the four LED wires into the stake. The tested files target a **Bambu Lab P1S with a 0.4 mm nozzle** and use 0.2 mm layers.
+
+| File | Contents |
+| --- | --- |
+| `print/3mf/lamp-shade-project.3mf` | Combined Bambu Studio project with shade and base |
+| `print/3mf/lamp-shade-final.3mf` | Verified shade, 0% infill |
+| `print/3mf/lamp-shade-base-final.3mf` | Verified base, 15% infill |
+| `print/3mf/print-profile.3mf` | P1S print settings |
+
+The lamp files and Bambu slicer profile are also published as [RGB LED Lamp Shade on MakerWorld][makerworld-lamp].
+
+## This project elsewhere
+
+| Where | Link | What is there |
+| --- | --- | --- |
+| Wokwi | [Simulation][wokwi] | Circuit and firmware logic |
+| MakerWorld | [RGB LED Lamp Shade][makerworld-lamp] | Lamp files and Bambu profile |
+| Printables | [Original sensor case][printables-vendor] | Source enclosure design by danielkrah |
+| YouTube Shorts | [Watch Day 4][day4-youtube] | Finished Day 4 build video |
+| TikTok | [Watch Day 4][day4-tiktok] | Finished Day 4 build video |
+| Instagram | [Watch Day 4][day4-instagram] | Finished Day 4 build video |
 
 ---
 
@@ -75,6 +113,9 @@ All projects at [github.com/TikitaTolley][gh].
 [tt]: https://tiktok.com/@tikitatech
 [ig]: https://instagram.com/tikitatech
 [gh]: https://github.com/TikitaTolley
-
 [wokwi]: https://wokwi.com/projects/471268493966479361
+[makerworld-lamp]: https://makerworld.com/en/models/3173248-rgb-led-lamp-shade
 [printables-vendor]: https://www.printables.com/model/277601-capacitive-soil-moisture-sensor-v12-case-waterproo
+[day4-youtube]: https://youtube.com/shorts/DsD2whw1M_8
+[day4-tiktok]: https://www.tiktok.com/@tikitatech/video/7675019173306633494
+[day4-instagram]: https://www.instagram.com/reel/DcJU_JGqnMz/

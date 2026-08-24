@@ -22,10 +22,28 @@ SOFTWARE.
 
 ---
 
-This licence covers the code and documentation in this repository, and my own
-hardware designs, which are additionally offered under CC BY 4.0.
+LICENSING BY MATERIAL
 
-It does NOT cover the meshes in `print/stl/`:
+Software and firmware
+
+For the purposes of the MIT License above, "Software" means the source code
+and firmware in this repository, including `main/main.ino`. It does not include
+the general build documentation, photographs, diagrams, CAD, or 3D models.
+
+Original TikitaTech designs and documentation
+
+The original build documentation, diagrams, photographs, CAD, and 3D models
+created by Tikita Tolley are licensed under Creative Commons
+Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0):
+
+  https://creativecommons.org/licenses/by-nc-sa/4.0/
+
+This includes the original lamp shade and base files in `print/3mf/` and the
+project photographs in `media/`.
+
+Third-party sensor-case meshes
+
+The TikitaTech licence does NOT cover the meshes in `print/stl/`:
 
   v4-outer-box.stl
   v4-upper-case.stl
@@ -37,4 +55,7 @@ Sensor v1.2 Case (Waterproof)", published at
 
   https://www.printables.com/model/277601-capacitive-soil-moisture-sensor-v12-case-waterproo
 
-and licensed CC BY-SA 4.0. They remain under CC BY-SA 4.0.
+and licensed Creative Commons Attribution-ShareAlike 4.0 International
+(CC BY-SA 4.0). They remain under that licence:
+
+  https://creativecommons.org/licenses/by-sa/4.0/
