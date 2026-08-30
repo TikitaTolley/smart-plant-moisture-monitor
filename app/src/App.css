@@ -1,0 +1,230 @@
+.app-shell {
+  min-height: 100svh;
+  padding: 28px 20px;
+  background: var(--bg-base);
+}
+
+.monitor-layout {
+  width: min(100%, 560px);
+  margin: 0 auto;
+}
+
+.datasheet-line,
+.telemetry-line {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--color-sub-2);
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.datasheet-line::after,
+.telemetry-line::after {
+  content: '';
+  flex: 1;
+  order: 1;
+  border-top: 1px dashed color-mix(in srgb, var(--color-ink) 45%, transparent);
+}
+
+.datasheet-line span:last-child,
+.telemetry-line span:last-child {
+  order: 2;
+}
+
+.monitor-header h1 {
+  margin: 22px 0 6px;
+  color: var(--color-primary);
+  font-size: clamp(1.6rem, 8vw, 2.75rem);
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.plant-name {
+  margin: 0;
+  color: var(--color-sub);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.request-status {
+  margin: 40px 0 0;
+  color: var(--color-sub);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.request-error,
+.refresh-warning {
+  color: var(--color-primary-dark);
+}
+
+.refresh-warning {
+  margin: 24px 0 0;
+  padding-block: 8px;
+  border-block: 1px dashed color-mix(in srgb, var(--color-ink) 35%, transparent);
+  font-size: 0.65rem;
+  font-weight: 700;
+}
+
+.reading-overview {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 48px;
+}
+
+.reading-overview > div {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.data-label {
+  color: var(--color-sub-2);
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.reading-overview strong {
+  color: var(--color-ink);
+  font-size: clamp(2.5rem, 13vw, 4rem);
+  line-height: 0.78;
+  letter-spacing: -0.1em;
+}
+
+.status-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 3px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.status-indicator::before {
+  width: 8px;
+  height: 8px;
+  background: currentColor;
+  border-radius: 50%;
+  content: '';
+}
+
+.status-moist {
+  color: var(--color-active-deep);
+}
+
+.status-getting-dry {
+  color: var(--color-accent);
+}
+
+.status-dry {
+  color: var(--color-primary-dark);
+}
+
+.status-offline {
+  color: var(--color-sub);
+}
+
+.character-stage {
+  min-height: clamp(250px, 42svh, 380px);
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  justify-content: center;
+  gap: 18px;
+  padding-bottom: 20px;
+  background: radial-gradient(
+    circle,
+    color-mix(in srgb, var(--color-primary) 12%, transparent),
+    transparent 62%
+  );
+}
+
+.character-stage img {
+  width: clamp(192px, 64vw, 288px);
+  height: auto;
+  align-self: center;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.character-offline img {
+  filter: saturate(0.45);
+  opacity: 0.78;
+}
+
+.character-stage span {
+  align-self: center;
+  color: var(--color-sub-2);
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.reading-details {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px 18px;
+  margin: 16px 0 0;
+}
+
+.reading-details div {
+  min-width: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+  white-space: nowrap;
+}
+
+.reading-details dt,
+.reading-details dd {
+  font-size: clamp(0.5rem, 2.4vw, 0.68rem);
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.reading-details dt {
+  color: var(--color-sub-2);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.reading-details dd {
+  min-width: 0;
+  margin: 0;
+  color: var(--color-sub);
+  font-weight: 700;
+}
+
+@media (max-width: 360px) {
+  .app-shell {
+    padding-inline: 14px;
+  }
+
+  .datasheet-line,
+  .telemetry-line {
+    gap: 8px;
+    font-size: 0.55rem;
+  }
+
+  .reading-details {
+    gap: 10px 12px;
+  }
+}

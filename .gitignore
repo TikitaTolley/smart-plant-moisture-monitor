@@ -1,4 +1,27 @@
+# macOS metadata
 .DS_Store
+._*
 
 *.gcode
 *.gcode.3mf
+
+# Firmware credentials and local variants
+main/secrets*.h
+!main/secrets.example.h
+
+# App dependencies and build output
+app/node_modules/
+app/dist/
+app/dist-ssr/
+
+# Cloudflare local state and secrets
+app/.wrangler/
+app/.dev.vars*
+!app/.dev.vars.example
+app/.env*
+!app/.env.example
+
+# App logs and local overrides
+app/logs/
+app/*.log
+app/*.local

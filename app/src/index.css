@@ -1,0 +1,38 @@
+:root {
+  --color-ink: #2a2a2a;
+  --color-primary: #ff7997;
+  --color-primary-dark: #e8567a;
+  --color-active: #6fbf8b;
+  --color-active-deep: #337148;
+  --color-accent: #ff7700;
+  --color-sub: #938c79;
+  --color-sub-2: #ab9b73;
+  --bg-base: #f3e8ce;
+  --bg-surface: #f4eee1;
+  --bg-surface-alt: #ede4d0;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    'Liberation Mono', monospace;
+  color: var(--color-ink);
+  background: var(--bg-base);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100svh;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
