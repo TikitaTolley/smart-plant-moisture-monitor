@@ -213,6 +213,28 @@
   font-weight: 700;
 }
 
+.site-footer {
+  margin-top: 48px;
+  padding-top: 18px;
+  border-top: 1px dashed color-mix(in srgb, var(--color-ink) 35%, transparent);
+  text-align: center;
+}
+
+.site-footer a {
+  color: var(--color-sub);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  text-transform: uppercase;
+}
+
+.site-footer a:hover,
+.site-footer a:focus-visible {
+  color: var(--color-primary-dark);
+}
+
 @media (max-width: 360px) {
   .app-shell {
     padding-inline: 14px;

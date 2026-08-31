@@ -410,6 +410,16 @@ function App() {
             </dl>
           </>
         )}
+
+        <footer className="site-footer">
+          <a
+            href="https://tikitatech.xyz/?utm_source=smart_plant_monitor&utm_medium=referral"
+            target="_blank"
+            rel="noreferrer"
+          >
+            More things I&apos;ve built <span aria-hidden="true">→</span>
+          </a>
+        </footer>
       </section>
     </main>
   )
