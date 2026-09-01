@@ -1,6 +1,6 @@
 # Smart Plant Moisture Monitor
 
-> A connected plant monitor with a capacitive soil sensor, an RGB status lamp, and an installable web app for checking the latest reading.
+> An ESP32 smart plant monitor with a capacitive soil sensor, a 3D-printed RGB status lamp and an installable pixel-art PWA.
 
 [![YouTube](https://img.shields.io/badge/YouTube-FF0000?style=flat&logo=youtube&logoColor=white)][yt]
 [![TikTok](https://img.shields.io/badge/TikTok-000000?style=flat&logo=tiktok&logoColor=white)][tt]
@@ -11,7 +11,17 @@
 
 ## What it does
 
-A capacitive sensor reads the soil moisture around a lemon-lime dracaena. The ESP32 shows the current status on the RGB lamp and sends a reading every five minutes to a Cloudflare-backed PWA.
+A capacitive sensor reads the soil moisture around a lemon-lime dracaena. The ESP32 shows the current status on the RGB lamp and sends the reading to a Cloudflare-backed PWA.
+
+The monitor has three live moisture states:
+
+| Moisture state | Lamp | PWA character |
+| --- | --- | --- |
+| Moist | Green | Happy |
+| Getting dry | Yellow | Worried |
+| Dry | Red | Sad |
+
+The sleeping character means the monitor is offline.
 
 ## Simulated circuit
 
@@ -62,7 +72,11 @@ The Arduino sketch is [`main/main.ino`](main/main.ino). It uses the ESP32 Arduin
 
 ## Web app
 
-The installable web app shows the latest plant reading and keeps the last known reading available offline. It is built with React and Vite and runs on Cloudflare Workers with D1.
+The installable React and Vite PWA receives readings through a Cloudflare Worker and stores them in D1.
+
+[Open the live Smart Plant Monitor][live-pwa]
+
+<img src="media/PWA.jpg" alt="Smart Plant Monitor PWA showing a pixel-art plant character" width="500">
 
 ```sh
 cd app
@@ -96,17 +110,25 @@ The custom shade softens the LED and the base routes the four LED wires into the
 | `print/3mf/lamp-shade-base-v3-final.3mf` | Verified base, 15% infill |
 | `print/3mf/print-profile.3mf` | P1S print settings |
 
-The lamp files and Bambu slicer profile are also published as [RGB LED Lamp Shade on MakerWorld][makerworld-lamp].
+The lamp files are also published as [RGB LED Lamp Shade on MakerWorld][makerworld-lamp].
 
 ## This project elsewhere
 
 | Where | Link | What is there |
 | --- | --- | --- |
-| MakerWorld | [RGB LED Lamp Shade][makerworld-lamp] | Lamp files and Bambu profile |
+| Live PWA | [Open the Smart Plant Monitor][live-pwa] | Latest reading and pixel-art moisture state |
+| Portfolio | [Read the project page][portfolio] | Full build overview |
+| MakerWorld | [RGB LED Lamp Shade][makerworld-lamp] | Lamp files and print details |
 | Printables | [Original sensor case][printables-vendor] | Source enclosure design by danielkrah |
-| YouTube Shorts | [Watch Day 4][day4-youtube] | Finished Day 4 build video |
-| TikTok | [Watch Day 4][day4-tiktok] | Finished Day 4 build video |
-| Instagram | [Watch Day 4][day4-instagram] | Finished Day 4 build video |
+| YouTube Shorts | [Watch Part 1][part1-youtube] · [Watch Part 2][part2-youtube] | RGB lamp build and wireless PWA build |
+| TikTok | [Watch Part 1][part1-tiktok] · [Watch Part 2][part2-tiktok] | RGB lamp build and wireless PWA build |
+| Instagram | [Watch Part 1][part1-instagram] · [Watch Part 2][part2-instagram] | RGB lamp build and wireless PWA build |
+
+## Licences
+
+- Software and firmware: [MIT](LICENSE)
+- Original lamp shade, base, build documentation and released project photographs: [CC BY-NC-SA 4.0](LICENSE)
+- Sensor-case meshes by danielkrah: [CC BY-SA 4.0](LICENSE)
 
 ---
 
@@ -116,9 +138,14 @@ All projects at [github.com/TikitaTolley][gh].
 [tt]: https://tiktok.com/@tikitatech
 [ig]: https://instagram.com/tikitatech
 [gh]: https://github.com/TikitaTolley
+[portfolio]: https://tikitatech.xyz/projects/smart-plant-moisture-monitor/
 [wokwi]: https://wokwi.com/projects/471268493966479361
 [makerworld-lamp]: https://makerworld.com/en/models/3173248-rgb-led-lamp-shade
 [printables-vendor]: https://www.printables.com/model/277601-capacitive-soil-moisture-sensor-v12-case-waterproo
-[day4-youtube]: https://youtube.com/shorts/DsD2whw1M_8
-[day4-tiktok]: https://www.tiktok.com/@tikitatech/video/7675019173306633494
-[day4-instagram]: https://www.instagram.com/reel/DcJU_JGqnMz/
+[part1-youtube]: https://youtube.com/shorts/DsD2whw1M_8
+[part1-tiktok]: https://www.tiktok.com/@tikitatech/video/7675019173306633494
+[part1-instagram]: https://www.instagram.com/reel/DcJU_JGqnMz/
+[part2-youtube]: https://youtube.com/shorts/lq9Cll0Gkk8
+[part2-tiktok]: https://www.tiktok.com/@tikitatech/video/7680212442886032673
+[part2-instagram]: https://www.instagram.com/reel/DctX8B5qHho/
+[live-pwa]: https://smart-plant-monitor.daeda-technologies.workers.dev
