@@ -7,7 +7,7 @@
 [![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=flat&logo=instagram&logoColor=white)][ig]
 [![Wokwi](https://img.shields.io/badge/Wokwi-simulate-2A2A2A?style=flat)][wokwi]
 
-<img src="media/lamp-print.jpg" alt="Printed lamp shade and base" width="700">
+<a href="media/lamp-print.jpg"><img src="media/lamp-print.jpg" alt="Printed lamp shade and base" width="180"></a>
 
 ## What it does
 
@@ -76,7 +76,7 @@ The installable React and Vite PWA receives readings through a Cloudflare Worker
 
 [Open the live Smart Plant Monitor][live-pwa]
 
-<img src="media/PWA.jpg" alt="Smart Plant Monitor PWA showing a pixel-art plant character" width="500">
+<a href="media/PWA.jpg"><img src="media/PWA.jpg" alt="Smart Plant Monitor PWA showing a pixel-art plant character" width="147"></a>
 
 ```sh
 cd app
@@ -97,7 +97,7 @@ The sensor case is based on [danielkrah's Capacitive Soil Moisture Sensor v1.2 C
 | `v4-bottom-case.stl` | Lower case half |
 | `v4-sensor-dummy.stl` | Fit-test sensor dummy |
 
-<img src="media/sensor-case.webp" alt="Printed sensor case" width="500">
+<a href="media/sensor-case-upright.webp"><img src="media/sensor-case-upright.webp" alt="Printed sensor case" width="180"></a>
 
 ## RGB lamp head
 
