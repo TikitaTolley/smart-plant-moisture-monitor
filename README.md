@@ -10,6 +10,7 @@
 <p>
   <a href="media/lamp-print.jpg"><img src="media/lamp-print.jpg" alt="Printed lamp shade and base" width="180"></a>
   <a href="media/plant-monitor-working.webp"><img src="media/plant-monitor-working.webp" alt="Working ESP32 plant monitor with a soil sensor and green status LED beside the plant" width="180"></a>
+  <a href="media/plant-pwa-demo.webp"><img src="media/plant-pwa-demo.webp" alt="Tikita holding the Smart Plant Monitor PWA beside the plant, soil sensor, and ESP32 circuit" width="180"></a>
 </p>
 
 ## What it does
