@@ -11,8 +11,8 @@ constexpr int redPin = 25;
 constexpr int greenPin = 26;
 constexpr int bluePin = 27;
 
-constexpr int dryRaw = 3200; // temporary estimate - recalibrate in dry soil
-constexpr int wetRaw = 2000; // temporary estimate - recalibrate after watering
+constexpr int dryRaw = 2736; // rounded mean of 30 dry readings in reading-dry.md
+constexpr int wetRaw = 3058; // rounded mean of 30 watered readings in reading-wet.md
 constexpr char deviceId[] = "lemon-lime-dracaena-01";
 constexpr char firmwareVersion[] = "0.2.1";
 constexpr unsigned long uploadIntervalMs = 300000;
