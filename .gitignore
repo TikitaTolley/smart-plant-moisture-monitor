@@ -1,18 +1,47 @@
 # macOS metadata
 .DS_Store
 ._*
+Thumbs.db
+
+# Editor and temporary files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Arduino build output
+build/
+.pio/
+*.bin
+*.eep
+*.elf
+*.hex
+*.map
+*.lst
+*.o
+*.a
+*.d
 
 *.gcode
 *.gcode.3mf
 
-# Firmware credentials and local variants
+# Local configuration and credentials
+.env
+.env.*
+!.env.example
 main/secrets*.h
 !main/secrets.example.h
+credentials*.h
+!credentials.example.h
 
 # App dependencies and build output
 app/node_modules/
 app/dist/
 app/dist-ssr/
+app/coverage/
+app/.eslintcache
+app/*.tsbuildinfo
 
 # Cloudflare local state and secrets
 app/.wrangler/
