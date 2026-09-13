@@ -11,15 +11,17 @@ constexpr int redPin = 25;
 constexpr int greenPin = 26;
 constexpr int bluePin = 27;
 
-constexpr int dryRaw = 2736; // rounded mean of 30 dry readings in reading-dry.md
-constexpr int wetRaw = 3058; // rounded mean of 30 watered readings in reading-wet.md
+constexpr int dryRaw = 2559; // measured dry-soil reference
+constexpr int wetRaw = 1741; // settled after light watering; relative reference
 constexpr char deviceId[] = "lemon-lime-dracaena-01";
-constexpr char firmwareVersion[] = "0.2.1";
+constexpr char firmwareVersion[] = "0.3.0";
 constexpr unsigned long uploadIntervalMs = 300000;
 constexpr time_t minimumValidTime = 1700000000;
 
 unsigned long sequence = 1;
 unsigned long lastUploadAttemptAt = 0;
+unsigned long lastSerialReadingAt = 0;
+bool firstUploadAttempted = false;
 Preferences preferences;
 bool preferencesReady = false;
 char pendingPayload[256];
@@ -227,6 +229,7 @@ void setup() {
   Serial.begin(115200);
 
   loadSequence();
+  analogReadResolution(12);
 
   pinMode(redPin, OUTPUT);
   pinMode(greenPin, OUTPUT);
@@ -239,8 +242,6 @@ void setup() {
 void loop() {
   maintainWifi();
   const int moisture = readAverageMoisture();
-  //Serial.println(moisture);
-  setColour(255, 0, 0);
 
   const int percent = moisturePercent(moisture);
 
@@ -254,7 +255,21 @@ void loop() {
     setColour(0, 255, 0);     // moist: green
   }
 
-  if (now - lastUploadAttemptAt >= uploadIntervalMs) {
+  if (now - lastSerialReadingAt >= 1000) {
+    lastSerialReadingAt = now;
+    Serial.printf("raw=%d relativeMoisture=%d%% status=%s wifi=%s\n",
+      moisture, percent, moistureStatus(percent),
+      WiFi.status() == WL_CONNECTED ? "connected" : "disconnected");
+  }
+
+  // Allow settling before the first online reading, then retain five-minute uploads.
+  const bool firstUploadReady = !firstUploadAttempted && now >= 30000 &&
+    WiFi.status() == WL_CONNECTED && clockIsReady();
+  const bool nextUploadReady = firstUploadAttempted &&
+    now - lastUploadAttemptAt >= uploadIntervalMs;
+
+  if (firstUploadReady || nextUploadReady) {
+    firstUploadAttempted = true;
     lastUploadAttemptAt = now;
 
     if (!hasPendingReading) {

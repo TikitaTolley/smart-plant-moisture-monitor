@@ -76,21 +76,7 @@ The Arduino sketch is [`main/main.ino`](main/main.ino). It uses the ESP32 Arduin
 
 ### Soil calibration
 
-The 30 [dry readings](main/reading-dry.md) total 82,094, giving a mean of
-2,736.47. The firmware uses the rounded value, `dryRaw = 2736`, as its 0%
-moisture endpoint.
-
-The 30 [watered readings](main/reading-wet.md), recorded about half an hour
-after watering, total 91,747, giving a mean of 3,058.23. The firmware uses
-`wetRaw = 3058` as its 100% moisture endpoint. These measured readings increase
-from dry to watered; the existing formula handles that direction without a
-code change. The percentage is relative to these two measured endpoints.
-Upload the updated sketch to apply the calibration to the monitor.
-
-The firmware calculates the moisture percentage and status. The API stores
-those values and the PWA displays them, so neither needs a calibration change.
-Existing stored readings keep their original percentages. The device simulator
-uses separate synthetic calibration values and does not affect live readings.
+Current firmware 0.3.0 uses `dryRaw = 2559` and `wetRaw = 1741`.
 
 ## Web app
 
