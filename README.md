@@ -8,14 +8,16 @@
 [![Wokwi](https://img.shields.io/badge/Wokwi-simulate-2A2A2A?style=flat)][wokwi]
 
 <p>
-  <a href="media/lamp-print.jpg"><img src="media/lamp-print.jpg" alt="Printed lamp shade and base" width="180"></a>
-  <a href="media/plant-monitor-working.webp"><img src="media/plant-monitor-working.webp" alt="Working ESP32 plant monitor with a soil sensor and green status LED beside the plant" width="180"></a>
-  <a href="media/plant-pwa-demo.webp"><img src="media/plant-pwa-demo.webp" alt="Tikita holding the Smart Plant Monitor PWA beside the plant, soil sensor, and ESP32 circuit" width="180"></a>
+  <a href="media/lamp-print.jpg"><img src="media/lamp-print.jpg" alt="Printed lamp shade and base" width="100"></a>
+  <a href="media/plant-monitor-working.webp"><img src="media/plant-monitor-working.webp" alt="Working ESP32 plant monitor with a soil sensor and green status LED beside the plant" width="100"></a>
+  <a href="media/plant-pwa-demo.webp"><img src="media/plant-pwa-demo.webp" alt="Tikita holding the Smart Plant Monitor PWA beside the plant, soil sensor, and ESP32 circuit" width="100"></a>
 </p>
+
+**[Open the live Smart Plant Monitor][live-pwa]**
 
 ## What it does
 
-A capacitive sensor reads the soil moisture around a lemon-lime dracaena. The ESP32 shows the current status on the RGB lamp and sends the reading to a Cloudflare-backed PWA.
+A capacitive sensor reads the soil moisture around the plant. The ESP32 shows the current status on the RGB lamp and sends the reading to a Cloudflare-backed PWA.
 
 The monitor has three live moisture states:
 
@@ -39,18 +41,19 @@ The sleeping character means the monitor is offline.
 | --- | --- | --- | --- | --- |
 | 1 | Starter kit | ESP32 Basic Starter Kit | £12.89 bundle | Shared purchase; included parts below are not charged again |
 | 1 | Microcontroller | ESP32 development board | Included in kit | 3.3 V logic |
-| 1 | Breadboard | 830 tie-points | Included in kit | Used for the prototype |
+| 1 | Perfboard | 50 x 70 mm | From £8.99 assorted pack | Soldered circuit |
+| 2 | Female header strips | Cut to 15 contacts | £0.10 per strip | ESP32 sockets |
+| 3 | Terminal blocks | One 3-way, two 2-way | Pack cost not allocated | Sensor and lamp connections |
 | 1 | USB cable | Data cable | Owned | |
 | 1 | RGB LED | 5 mm, common cathode | Included in kit | One of two supplied in the kit |
 | 3 | Resistor | 220 Ω from assorted pack | Included in kit | Three of 30 supplied in the kit |
-| 7 | Jumper wires | Dupont F-M and M-M | Included in kit | Used on the breadboard prototype |
+| As needed | Wire | Jumpers and hook-up wire | Shared supplies | |
 | 1 | Soil moisture sensor | Capacitive v1.2 | £0.48 | 3.3 to 5.5 V input, 0 to 3.0 V output, PH2.0-3P, 98 x 23 mm |
 | 38.02 g | Printed parts | PLA Basic | £1.33 | 26.16 g colourful white + 11.86 g white, at £3.50 per 100 g |
 | 1 | Mains USB plug | 5 V USB | Owned | |
-| 1 | Plant | Lemon-lime dracaena | £4.99 | |
+| 1 | Plant | Potted plant | £4.99 | |
 
-Project-specific materials: £6.80
-Total including the full starter kit: £19.69.
+Recorded sensor, lamp/sensor-case PLA and plant: £6.80. Controller enclosure and shared wiring supplies are additional; the £12.89 starter kit is a shared purchase.
 
 ## Wiring
 
@@ -76,7 +79,7 @@ The Arduino sketch is [`main/main.ino`](main/main.ino). It uses the ESP32 Arduin
 
 ### Soil calibration
 
-Current firmware 0.3.0 uses `dryRaw = 2559` and `wetRaw = 1741`.
+Current references: `dryRaw = 2559`, `wetRaw = 1741`. For your plant, average the Serial Monitor raw readings in dry soil and after watering has settled, then update those two constants. The percentage is relative to your references.
 
 ## Web app
 
@@ -92,7 +95,7 @@ bun install
 bun run dev
 ```
 
-Use `bun run build` for a production build and `bun run lint` to check the code.
+See [app setup](app/README.md) for the device key, database and deployment steps.
 
 ## Printed sensor case
 
@@ -100,10 +103,10 @@ The sensor case is based on [danielkrah's Capacitive Soil Moisture Sensor v1.2 C
 
 | File | Part |
 | --- | --- |
-| `v4-outer-box.stl` | Protective sleeve |
-| `v4-upper-case.stl` | Upper case half |
-| `v4-bottom-case.stl` | Lower case half |
-| `v4-sensor-dummy.stl` | Fit-test sensor dummy |
+| [v4-outer-box.stl](print/stl/v4-outer-box.stl) | Protective sleeve |
+| [v4-upper-case.stl](print/stl/v4-upper-case.stl) | Upper case half |
+| [v4-bottom-case.stl](print/stl/v4-bottom-case.stl) | Lower case half |
+| [v4-sensor-dummy.stl](print/stl/v4-sensor-dummy.stl) | Fit-test sensor dummy |
 
 <a href="media/sensor-case-upright.webp"><img src="media/sensor-case-upright.webp" alt="Printed sensor case" width="180"></a>
 
@@ -113,12 +116,24 @@ The custom shade softens the LED and the base routes the four LED wires into the
 
 | File | Contents |
 | --- | --- |
-| `print/3mf/lamp-shade-project.3mf` | Combined Bambu Studio project with shade and base |
-| `print/3mf/lamp-shade-final.3mf` | Verified shade, 0% infill |
-| `print/3mf/lamp-shade-base-v3-final.3mf` | Verified base, 15% infill |
-| `print/3mf/print-profile.3mf` | P1S print settings |
+| [print/3mf/lamp-shade-project.3mf](print/3mf/lamp-shade-project.3mf) | Combined Bambu Studio project with shade and base |
+| [print/3mf/lamp-shade-final.3mf](print/3mf/lamp-shade-final.3mf) | Verified shade, 0% infill |
+| [print/3mf/lamp-shade-base-v3-final.3mf](print/3mf/lamp-shade-base-v3-final.3mf) | Verified base, 15% infill |
+| [print/3mf/print-profile.3mf](print/3mf/print-profile.3mf) | P1S print settings |
 
 The lamp files are also published as [RGB LED Lamp Shade on MakerWorld][makerworld-lamp].
+
+## Controller enclosure
+
+The USB-powered ESP32 and soldered perfboard sit inside a case with a removable carrier and lid.
+
+| CAD download | Part |
+| --- | --- |
+| [Body](cad/controller/controller-body.step) | Perfboard supports and wire clearance |
+| [Carrier](cad/controller/controller-carrier.step) | Removable ESP32 support |
+| [Lid](cad/controller/controller-lid.step) | Lift-off cover |
+
+These STEP files need orientation and slicing for your printer.
 
 ## This project elsewhere
 
