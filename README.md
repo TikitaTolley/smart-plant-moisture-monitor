@@ -141,6 +141,11 @@ These STEP files need orientation and slicing for your printer.
 The [Onshape source document][onshape-controller] contains the design history and named revisions.
 The controller enclosure is available through GitHub rather than model-sharing platforms.
 
+<p>
+  <a href="media/controller-enclosure-closed.webp"><img src="media/controller-enclosure-closed.webp" alt="Finished Smart Plant Moisture Monitor controller enclosure running at Liverpool MakeFest 2026" width="240" height="240"></a>
+  <a href="media/controller-enclosure-open.webp"><img src="media/controller-enclosure-open.webp" alt="Open Smart Plant Moisture Monitor controller enclosure showing the ESP32, perfboard and terminal blocks" width="240" height="240"></a>
+</p>
+
 ## This project elsewhere
 
 | Where | Link | What is there |
