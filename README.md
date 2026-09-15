@@ -10,10 +10,10 @@ The finished build uses soldered electronics inside a 3D-printed controller encl
 [![Wokwi](https://img.shields.io/badge/Wokwi-simulate-2A2A2A?style=flat)][wokwi]
 
 <p>
-  <a href="media/lamp-print.jpg"><img src="media/lamp-print.jpg" alt="Printed lamp shade and base" width="100"></a>
-  <a href="media/plant-monitor-working.webp"><img src="media/plant-monitor-working.webp" alt="Working ESP32 plant monitor with a soil sensor and green status LED beside the plant" width="100"></a>
-  <a href="media/plant-pwa-demo.webp"><img src="media/plant-pwa-demo.webp" alt="Tikita holding the Smart Plant Monitor PWA beside the plant, soil sensor, and ESP32 circuit" width="100"></a>
-  <a href="media/plant-monitor-makefest.webp"><img src="media/plant-monitor-makefest.webp" alt="Tikita with the finished enclosed Smart Plant Moisture Monitor at Liverpool MakeFest 2026" width="100"></a>
+  <a href="media/lamp-print.jpg"><img src="media/lamp-print.jpg" alt="Printed lamp shade and base" width="100" height="178"></a>
+  <a href="media/plant-monitor-working.webp"><img src="media/plant-monitor-working.webp" alt="Working ESP32 plant monitor with a soil sensor and green status LED beside the plant" width="100" height="178"></a>
+  <a href="media/plant-pwa-demo.webp"><img src="media/plant-pwa-demo.webp" alt="Tikita holding the Smart Plant Monitor PWA beside the plant, soil sensor, and ESP32 circuit" width="100" height="178"></a>
+  <a href="media/plant-monitor-makefest.webp"><img src="media/plant-monitor-makefest.webp" alt="Tikita with the finished enclosed Smart Plant Moisture Monitor at Liverpool MakeFest 2026" width="100" height="178"></a>
 </p>
 
 **[Open the live Smart Plant Monitor][live-pwa]**
