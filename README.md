@@ -2,6 +2,8 @@
 
 > An ESP32 smart plant monitor with a capacitive soil sensor, a 3D-printed RGB status lamp and an installable pixel-art PWA.
 
+The finished build uses soldered electronics inside a 3D-printed controller enclosure and was exhibited at Liverpool MakeFest 2026.
+
 [![YouTube](https://img.shields.io/badge/YouTube-FF0000?style=flat&logo=youtube&logoColor=white)][yt]
 [![TikTok](https://img.shields.io/badge/TikTok-000000?style=flat&logo=tiktok&logoColor=white)][tt]
 [![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=flat&logo=instagram&logoColor=white)][ig]
@@ -11,6 +13,7 @@
   <a href="media/lamp-print.jpg"><img src="media/lamp-print.jpg" alt="Printed lamp shade and base" width="100"></a>
   <a href="media/plant-monitor-working.webp"><img src="media/plant-monitor-working.webp" alt="Working ESP32 plant monitor with a soil sensor and green status LED beside the plant" width="100"></a>
   <a href="media/plant-pwa-demo.webp"><img src="media/plant-pwa-demo.webp" alt="Tikita holding the Smart Plant Monitor PWA beside the plant, soil sensor, and ESP32 circuit" width="100"></a>
+  <a href="media/plant-monitor-makefest.webp"><img src="media/plant-monitor-makefest.webp" alt="Tikita with the finished enclosed Smart Plant Moisture Monitor at Liverpool MakeFest 2026" width="100"></a>
 </p>
 
 **[Open the live Smart Plant Monitor][live-pwa]**
@@ -49,11 +52,12 @@ The sleeping character means the monitor is offline.
 | 3 | Resistor | 220 Ω from assorted pack | Included in kit | Three of 30 supplied in the kit |
 | As needed | Wire | Jumpers and hook-up wire | Shared supplies | |
 | 1 | Soil moisture sensor | Capacitive v1.2 | £0.48 | 3.3 to 5.5 V input, 0 to 3.0 V output, PH2.0-3P, 98 x 23 mm |
-| 38.02 g | Printed parts | PLA Basic | £1.33 | 26.16 g colourful white + 11.86 g white, at £3.50 per 100 g |
+| 38.02 g | Lamp and sensor-case parts | PLA Basic | £1.33 | 26.16 g colourful white + 11.86 g white |
+| 60.32 g | Controller-enclosure prints | White PLA | £2.11 | Recorded as 44.14 g + 16.18 g |
 | 1 | Mains USB plug | 5 V USB | Owned | |
 | 1 | Plant | Potted plant | £4.99 | |
 
-Recorded sensor, lamp/sensor-case PLA and plant: £6.80. Controller enclosure and shared wiring supplies are additional; the £12.89 starter kit is a shared purchase.
+PLA is calculated at the recorded DoES rate of £3.50 per 100 g. Recorded project materials total £8.91, or £21.80 including the full £12.89 starter kit. Shared wiring supplies are additional.
 
 ## Wiring
 
@@ -116,10 +120,10 @@ The custom shade softens the LED and the base routes the four LED wires into the
 
 | File | Contents |
 | --- | --- |
-| [print/3mf/lamp-shade-project.3mf](print/3mf/lamp-shade-project.3mf) | Combined Bambu Studio project with shade and base |
+| [print/3mf/lamp-shade-project.3mf](print/3mf/lamp-shade-project.3mf) | Combined Bambu Studio project with verified shade and v3 base |
 | [print/3mf/lamp-shade-final.3mf](print/3mf/lamp-shade-final.3mf) | Verified shade, 0% infill |
 | [print/3mf/lamp-shade-base-v3-final.3mf](print/3mf/lamp-shade-base-v3-final.3mf) | Verified base, 15% infill |
-| [print/3mf/print-profile.3mf](print/3mf/print-profile.3mf) | P1S print settings |
+| [print/3mf/print-profile.3mf](print/3mf/print-profile.3mf) | Two configured plates: shade at 0% infill and v3 base at 15% infill |
 
 The lamp files are also published as [RGB LED Lamp Shade on MakerWorld][makerworld-lamp].
 
@@ -134,6 +138,8 @@ The USB-powered ESP32 and soldered perfboard sit inside a case with a removable 
 | [Lid](cad/controller/controller-lid.step) | Lift-off cover |
 
 These STEP files need orientation and slicing for your printer.
+The [Onshape source document][onshape-controller] contains the design history and named revisions.
+The controller enclosure is available through GitHub rather than model-sharing platforms.
 
 ## This project elsewhere
 
@@ -142,6 +148,7 @@ These STEP files need orientation and slicing for your printer.
 | Live PWA | [Open the Smart Plant Monitor][live-pwa] | Latest reading and pixel-art moisture state |
 | Portfolio | [Read the project page][portfolio] | Full build overview |
 | MakerWorld | [RGB LED Lamp Shade][makerworld-lamp] | Lamp files and print details |
+| Onshape | [Open the controller enclosure source][onshape-controller] | Controller design history and named revisions |
 | Printables | [Original sensor case][printables-vendor] | Source enclosure design by danielkrah |
 | YouTube Shorts | [Watch Part 1][part1-youtube] · [Watch Part 2][part2-youtube] | RGB lamp build and wireless PWA build |
 | TikTok | [Watch Part 1][part1-tiktok] · [Watch Part 2][part2-tiktok] | RGB lamp build and wireless PWA build |
@@ -150,7 +157,7 @@ These STEP files need orientation and slicing for your printer.
 ## Licences
 
 - Software and firmware: [MIT](LICENSE)
-- Original lamp shade, base, build documentation and released project photographs: [CC BY-NC-SA 4.0](LICENSE)
+- Original lamp shade, base, controller CAD, build documentation and released project photographs: [CC BY-NC-SA 4.0](LICENSE)
 - Sensor-case meshes by danielkrah: [CC BY-SA 4.0](LICENSE)
 
 ---
@@ -164,6 +171,7 @@ All projects at [github.com/TikitaTolley][gh].
 [portfolio]: https://tikitatech.xyz/projects/smart-plant-moisture-monitor/
 [wokwi]: https://wokwi.com/projects/471268493966479361
 [makerworld-lamp]: https://makerworld.com/en/models/3173248-rgb-led-lamp-shade
+[onshape-controller]: https://cad.onshape.com/documents/6bfe477083b9e3ae1efd160d/w/e42f85ce378bae2f44ccfe51/e/629ef28bf58cca82b9749cb0
 [printables-vendor]: https://www.printables.com/model/277601-capacitive-soil-moisture-sensor-v12-case-waterproo
 [part1-youtube]: https://youtube.com/shorts/DsD2whw1M_8
 [part1-tiktok]: https://www.tiktok.com/@tikitatech/video/7675019173306633494
