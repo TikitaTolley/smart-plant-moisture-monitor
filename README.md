@@ -7,7 +7,6 @@ The finished build uses soldered electronics inside a 3D-printed controller encl
 [![YouTube](https://img.shields.io/badge/YouTube-FF0000?style=flat&logo=youtube&logoColor=white)][yt]
 [![TikTok](https://img.shields.io/badge/TikTok-000000?style=flat&logo=tiktok&logoColor=white)][tt]
 [![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=flat&logo=instagram&logoColor=white)][ig]
-[![Wokwi](https://img.shields.io/badge/Wokwi-simulate-2A2A2A?style=flat)][wokwi]
 
 <p>
   <a href="media/lamp-print.jpg"><img src="media/lamp-print.jpg" alt="Printed lamp shade and base" width="100" height="178"></a>
