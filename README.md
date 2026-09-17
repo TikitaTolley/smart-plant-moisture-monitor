@@ -2,7 +2,7 @@
 
 > An ESP32 smart plant monitor with a capacitive soil sensor, a 3D-printed RGB status lamp and an installable pixel-art PWA.
 
-The finished build uses soldered electronics inside a 3D-printed controller enclosure and was exhibited at Liverpool MakeFest 2026.
+The finished build uses soldered electronics inside a 3D-printed controller enclosure.
 
 [![YouTube](https://img.shields.io/badge/YouTube-FF0000?style=flat&logo=youtube&logoColor=white)][yt]
 [![TikTok](https://img.shields.io/badge/TikTok-000000?style=flat&logo=tiktok&logoColor=white)][tt]
@@ -139,7 +139,7 @@ The [Onshape source document][onshape-controller] contains the design history an
 The controller enclosure is available through GitHub rather than model-sharing platforms.
 
 <p>
-  <a href="media/controller-enclosure-closed.webp"><img src="media/controller-enclosure-closed.webp" alt="Finished Smart Plant Moisture Monitor controller enclosure running at Liverpool MakeFest 2026" width="240" height="240"></a>
+  <a href="media/controller-enclosure-closed.webp"><img src="media/controller-enclosure-closed.webp" alt="Finished Smart Plant Moisture Monitor controller enclosure" width="240" height="240"></a>
   <a href="media/controller-enclosure-open.webp"><img src="media/controller-enclosure-open.webp" alt="Open Smart Plant Moisture Monitor controller enclosure showing the ESP32, perfboard and terminal blocks" width="240" height="240"></a>
 </p>
 
