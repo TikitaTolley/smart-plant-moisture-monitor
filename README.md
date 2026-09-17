@@ -56,8 +56,6 @@ The sleeping character means the monitor is offline.
 | 1 | Mains USB plug | 5 V USB | Owned | |
 | 1 | Plant | Potted plant | £4.99 | |
 
-PLA is calculated at the recorded DoES rate of £3.50 per 100 g. Recorded project materials total £8.91, or £21.80 including the full £12.89 starter kit. Shared wiring supplies are additional.
-
 ## Wiring
 
 | Component | Pin | ESP32 connection | Notes |
