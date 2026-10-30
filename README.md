@@ -68,6 +68,8 @@ The sleeping character means the monitor is offline.
 | RGB LED | Green anode | GPIO 26 through 220 Ω | PWM |
 | RGB LED | Blue anode | GPIO 27 through 220 Ω | PWM |
 
+<a href="media/plant-monitor-layout.webp"><img src="media/plant-monitor-layout.webp" alt="Perfboard layout: the ESP32 with screw terminals for the soil sensor and RGB lamp, and the three 220 ohm resistors" height="240"></a>
+
 ## Firmware
 
 The Arduino sketch is [`main/main.ino`](main/main.ino). It uses the ESP32 Arduino core.
