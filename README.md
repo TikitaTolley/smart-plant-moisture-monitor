@@ -70,6 +70,8 @@ The sleeping character means the monitor is offline.
 
 <a href="media/plant-monitor-layout.webp"><img src="media/plant-monitor-layout.webp" alt="Perfboard layout: the ESP32 with screw terminals for the soil sensor and RGB lamp, and the three 220 ohm resistors" height="240"></a>
 
+The layout file is [`layout/plant-monitor.diy`](layout/plant-monitor.diy), which opens in [DIYLC](https://bancika.github.io/diy-layout-creator/).
+
 ## Firmware
 
 The Arduino sketch is [`main/main.ino`](main/main.ino). It uses the ESP32 Arduino core.
